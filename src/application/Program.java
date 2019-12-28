@@ -10,32 +10,32 @@ import chess.ChessPosition;
 
 public class Program {
 	public static void main(String[] args) {
-		
+
 		ChessMatch chessMatch = new ChessMatch();
 		Scanner sc = new Scanner(System.in);
-		
-		while(true) {
+
+		while (true) {
 			try {
 				UI.printBoard(chessMatch.getPieces());
 				System.out.println();
 				System.out.print("Source: ");
 				ChessPosition source = UI.readChessPosition(sc);
-				
+
 				System.out.println();
 				System.out.println("Target: ");
 				ChessPosition target = UI.readChessPosition(sc);
-				
+
 				ChessPiece capturedPiece = chessMatch.performChessMove(source, target);
-			}catch(ChessException e) {
+			} catch (ChessException e) {
 				System.out.println(e.getMessage());
 				sc.nextLine();
-			}catch(InputMismatchException e) {
+			} catch (InputMismatchException e) {
 				System.out.println(e.getMessage());
 				sc.nextLine();
 			}
-			
+
 		}
-		
+
 	}
 
 }
